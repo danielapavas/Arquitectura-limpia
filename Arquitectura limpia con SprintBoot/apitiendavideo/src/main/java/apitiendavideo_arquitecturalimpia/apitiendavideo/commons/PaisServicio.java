@@ -2,18 +2,17 @@ package apitiendavideo_arquitecturalimpia.apitiendavideo.commons;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import apitiendavideo_arquitecturalimpia.apitiendavideo.applications.inputPort.IPaisServicio;
 import apitiendavideo_arquitecturalimpia.apitiendavideo.applications.outputPort.IPaisRepositorio;
 import apitiendavideo_arquitecturalimpia.apitiendavideo.entities.Pais;
 
-@Service
 public class PaisServicio implements IPaisServicio {
 
-    @Autowired
-    IPaisRepositorio repositorio;
+    private IPaisRepositorio repositorio;
+
+    public PaisServicio(IPaisRepositorio repositorio) {
+        this.repositorio = repositorio;
+    }
 
     @Override
     public List<Pais> listar() {
